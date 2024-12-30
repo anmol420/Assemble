@@ -857,19 +857,22 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": -35.039497422668006,
-			"y": 603.7408610670269,
-			"lastActivityTimestamp": 1735061129362,
+			"x": -142.2900188476215,
+			"y": 724.0479477552308,
+			"lastActivityTimestamp": 1735535246081,
 			"meta": {}
 		},
 		{
 			"followingUserId": null,
 			"opacityForNextShape": 1,
-			"stylesForNextShape": {},
+			"stylesForNextShape": {
+				"tldraw:geo": "check-box",
+				"tldraw:color": "light-green"
+			},
 			"brush": null,
 			"scribbles": [],
 			"cursor": {
-				"type": "move",
+				"type": "default",
 				"rotation": 0
 			},
 			"isFocusMode": false,
@@ -911,7 +914,7 @@
 			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [
-				"shape:z79wJGzEqmpSuE3QVPqed"
+				"shape:R681YunC-u92M4irC_Vhp"
 			],
 			"hoveredShapeId": null,
 			"erasingShapeIds": [],
@@ -923,12 +926,72 @@
 			"typeName": "instance_page_state"
 		},
 		{
-			"x": 201.04464257906983,
-			"y": -20.1582008606363,
+			"x": 270.9906232117464,
+			"y": -15.028843178119544,
 			"z": 0.7148373580259958,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
+		},
+		{
+			"x": -204.05286853787877,
+			"y": 390.42841513372946,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:mlzG293ZNC4ErhSzu7vil",
+			"type": "geo",
+			"props": {
+				"w": 48.91670317923786,
+				"h": 34.46120763042444,
+				"geo": "check-box",
+				"color": "light-green",
+				"labelColor": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"font": "draw",
+				"text": "",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"growY": 0,
+				"url": "",
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aQ6o5",
+			"typeName": "shape"
+		},
+		{
+			"x": -193.79413182702604,
+			"y": 572.7542001635088,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:R681YunC-u92M4irC_Vhp",
+			"type": "geo",
+			"props": {
+				"w": 53.57974009365725,
+				"h": 33.06228801777078,
+				"geo": "check-box",
+				"color": "light-green",
+				"labelColor": "black",
+				"fill": "none",
+				"dash": "draw",
+				"size": "m",
+				"font": "draw",
+				"text": "",
+				"align": "middle",
+				"verticalAlign": "middle",
+				"growY": 0,
+				"url": "",
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "aR5f6",
+			"typeName": "shape"
 		}
 	]
 }

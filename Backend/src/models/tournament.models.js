@@ -64,6 +64,10 @@ const tournamentScehma = new Schema({
             ref: "User",
         }
     ],
+    isActive: {
+        type: Boolean,
+        default: true,
+    },
     // leaderboard: {},
     // idp: {},
     // refundForm: {},

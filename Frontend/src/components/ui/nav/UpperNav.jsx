@@ -5,7 +5,7 @@ import {NavBell} from "../svg/NavBell";
 import { NavPayment } from "../svg/NavPayment";
 import NavConsole from "./NavConsole";
 
-const UpperNav = () => {
+const UpperNav = (props) => {
   return (
     <div className="relative h-[10vh] w-[100vw] ">
       <div className="top-4 px-4 w-full fixed flex justify-between z-10 ">
@@ -13,7 +13,7 @@ const UpperNav = () => {
             <Logo/>
         </div>
         <div className="relative w-[30vw] z-10">
-            <NavConsole/>
+            <NavConsole name={props.name}/>
         </div>
         <div className=" w-[11vw]  flex justify-between items-center z-10">
             <NavIcons icons={<NavPayment/>} />
