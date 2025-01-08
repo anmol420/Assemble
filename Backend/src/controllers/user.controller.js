@@ -295,15 +295,55 @@ const verifyNewEmail = asyncHandler(async (req, res) => {
     }
 });
 
-const forgotUsername = asyncHandler(async (req, res) => {
+const forgetUsernameVerificationEmail = asyncHandler(async (req, res) => {
     const { email } = req.body;
+
     if (!email) {
         throw new ApiError(400, "All Fields Are Required.");
     }
+
     const user = await User.findOne({ email: email });
+
     if (!user) {
         throw new ApiError(404, "Email Not Found.");
     }
+
+    const verificationCode = (Math.floor(100000 + Math.random() * 900000)).toString();
+
+    try {
+        const updatedUser = await User.findByIdAndUpdate(
+            user._id,
+            { verificationCode: verificationCode },
+            { new: true }
+        );
+
+        await sendVerificationCodeEmailQueue.add('verification-code-email', { userId: updatedUser._id });
+
+        return res
+            .status(201)
+            .json(new ApiResponse(201, null, "Mail Sent Successfully."));
+    } catch (error) {
+        throw new ApiError(500, error.message || "Internal Server Error.");
+    }
+});
+
+const forgotUsername = asyncHandler(async (req, res) => {
+    const { email , code } = req.body;
+
+    if (!email || !code) {
+        throw new ApiError(400, "All Fields Are Required.");
+    }
+
+    const user = await User.findOne({ email: email });
+
+    if (!user) {
+        throw new ApiError(404, "Email Not Found.");
+    }
+
+    if(user.verificationCode !== code) {
+        throw new ApiError(401, "Invalid Verification Code.");
+    }
+
     try {
         await sendUsernameEmailQueue.add('username-email', { userId: user._id });
         return res
@@ -441,6 +481,7 @@ export {
     addDetails,
     changeEmail,
     verifyNewEmail,
+    forgetUsernameVerificationEmail,
     forgotUsername,
     forgotPasswordVerificationEmail,
     forgotPasswordVerificationCode,

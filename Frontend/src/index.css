@@ -458,6 +458,9 @@ background-size: cover;
   .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 }
 .ACMAIN{
   height: 100vh;

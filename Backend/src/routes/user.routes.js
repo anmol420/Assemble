@@ -9,6 +9,7 @@ import {
     addDetails,
     changeEmail,
     verifyNewEmail,
+    forgetUsernameVerificationEmail,
     forgotUsername,
     forgotPassword,
     forgotPasswordVerificationCode,
@@ -37,6 +38,7 @@ const router = Router()
 router.route("/register").post(validationSchema(registerUserSchema), registerUser);
 router.route("/login").post(validationSchema(loginUserSchema), loginUser);
 router.route("/verifyCode").post(validationSchema(verifyCodeSchema), verifyCode);
+router.route("/forgetUsernameVerificationEmail").post(validationSchema(forgotUsernameSchema), forgetUsernameVerificationEmail);
 router.route("/forgotUsername").post(validationSchema(forgotUsernameSchema), forgotUsername);
 router.route("/forgotPasswordVerificationEmail").post(validationSchema(forgotPasswordVerificationEmailSchema), forgotPasswordVerificationEmail);
 router.route("/forgotPasswordVerificationCode").post(validationSchema(forgotPasswordVerificationCodeSchema), forgotPasswordVerificationCode);

@@ -8,15 +8,19 @@ const tournamentScehma = new Schema({
         unique: true,    
     },
     matchDate: {
-        type: Date,
+        type: String,
         required: true,
     },
     matchTime: {
-        type: Date,
+        type: String,
         required: true,
     },
     registrationEndDate: {
-        type: Date,
+        type: String,
+        required: true,
+    },
+    registrationEndTime: {
+        type: String,
         required: true,
     },
     totalSlots: {
@@ -64,11 +68,21 @@ const tournamentScehma = new Schema({
             ref: "User",
         }
     ],
+    // for finished registration
     isActive: {
         type: Boolean,
         default: true,
     },
-    // leaderboard: {},
+    // for ongoing tournaments (registration completed)
+    isOngoing: {
+        type: Boolean,
+        default: false,
+    },
+    // for finished tournaments
+    isCompleted: {
+        type: Boolean,
+        default: false,
+    },
     // idp: {},
     // refundForm: {},
 }, {
