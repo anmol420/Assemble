@@ -18,6 +18,7 @@ import Homepage from "./components/homepage/Homepage";
 import NavConsole from "./components/ui/nav/NavConsole";
 import GamerTag from "./components/GamerTag";
 import Password from "./components/Password";
+import BgmiPage from "./pages/BgmiPage";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
