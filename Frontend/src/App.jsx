@@ -16,16 +16,22 @@ import DashBoard from "./components/DashBoard";
 import AccountCenter from "./components/AccountCenter"
 import Homepage from "./components/homepage/Homepage";
 import NavConsole from "./components/ui/nav/NavConsole";
+// import Header from "./components/Header";
+import HeaderPR from "./components/HeaderPR";
+// import UsernameRecover from "./components/UsernameRecover";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-      {/* {/* <Body/> */}
-      {/* <Login/> */} */}
+      <Body/>
+      {/* <Login/> */}
       {/* <DashBoard/> */}
-      <Homepage/>
+      {/* <Homepage/> */}
       {/* <AccountCenter /> */}
       {/* <NavConsole/> */}
-      
+      {/* <Header/> */}
+      {/* <PassRecovery/> */}
+     {/* <UsernameRecover/> */}
+    
     </div>
   );
 };

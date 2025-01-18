@@ -1,6 +1,10 @@
-import React from "react";
-import HeaderPR from "./HeaderPR";
+import React, { useState } from "react";
+
+
 const UsernameRecover = () => {
+ 
+  
+
   return (
     <>
       <div className="pr-page">
@@ -13,18 +17,26 @@ const UsernameRecover = () => {
             </button>
           </div>
           <div className="pr-bottom-box">
-            {/* SAME AS THE SIGN-IN BOX */}
-            <div className="container ">
-              <div className="sign-in-box-heading ">PASSWORD RECOVERY</div>
+            <div className="container">
+              <div className="sign-in-box-heading">USERNAME RECOVERY</div>
               <p className="head-text">
                 I know, You Can Remember Clingy Words Given By Your Partner But
-                Gamertag Not !
+                Gamertag Not!
               </p>
             </div>
             <div className="flex gap-5 flex-col">
-              <input className="input-box" placeholder="EMAIL ID"></input>
-
-              <button className="sign-in-button">VERIFY</button>
+              <input
+                className="input-box"
+                placeholder="EMAIL ID"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button className="sign-in-button" onClick={handleclick}>
+                VERIFY
+              </button>
+              {errorMessage && (
+                <p className="error-message text-red-500">{errorMessage}</p>
+              )}
             </div>
             <div>
               <div className="line"></div>
