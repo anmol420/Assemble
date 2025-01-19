@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-* {
+*{
   margin: 0;
   padding: 0;
 }
@@ -18,12 +18,12 @@
   src: url("./assets/fonts/BebasNeueRegular.woff2") format("woff2");
 }
 
- *{
+*{
   cursor: url("");
  }
 
 .page {
-  background-image: url("../public/vite.png");
+  background-image: url('https://res.cloudinary.com/deg3edza1/image/upload/v1736427009/cbwg9savualjudio405j.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -244,7 +244,7 @@
 .peepee {
   height: 100vh;
   width: 100vw;
-  background-image: url("./assets/peepee.svg");
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427273/vnh1xrwxolyzedkdjpkd.png");
   background-size: cover;
 }
 
@@ -306,7 +306,15 @@
 
 /* PASSWORD RECOVERY */
 .pr-page {
-  background-image: url("../public/page2.png");
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427648/xwdoeds5fp3pqsyozzut.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  margin-bottom: 0px;
+}
+.pr-page-1{
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427654/uwlyjv2conjuqowprucj.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
