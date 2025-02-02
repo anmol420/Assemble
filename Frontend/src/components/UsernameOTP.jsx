@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import HeaderPR from "./HeaderPR";
 
-const IdentityVerify = () => {
+const UsernameOTP = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -48,7 +48,7 @@ const IdentityVerify = () => {
       );
       // if (response.status === 200) {
       //   setError("");
-        
+
       // } else {
       //   setError(response.data.message || "Failed to verify OTP. Please try again.");
       // }
@@ -63,14 +63,17 @@ const IdentityVerify = () => {
       <HeaderPR />
       <div className="pr-container">
         <div className="pr-top-box">
-          <button className="forgot-pass text-[#ffffff]">FORGOT PASSWORD</button>
+          <button className="forgot-pass text-[#ffffff]">
+            FORGOT PASSWORD
+          </button>
           <button className="forgot-pass text-white">FORGOT USERNAME</button>
         </div>
         <div className="pr-bottom-box">
           <div className="container">
             <div className="sign-in-box-heading">Identity Verification</div>
             <p className="head-text">
-              We have sent an OTP to your registered email ID. Please enter it below.
+              We have sent an OTP to your registered email ID. Please enter it
+              below.
             </p>
           </div>
           <div className="flex flex-col gap-5">
@@ -105,4 +108,4 @@ const IdentityVerify = () => {
   );
 };
 
-export default IdentityVerify;
+export default UsernameOTP;

@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-* {
+*{
   margin: 0;
   padding: 0;
 }
@@ -18,12 +18,12 @@
   src: url("./assets/fonts/BebasNeueRegular.woff2") format("woff2");
 }
 
- *{
+*{
   cursor: url("");
  }
 
 .page {
-  background-image: url("../public/vite.png");
+  background-image: url('https://res.cloudinary.com/deg3edza1/image/upload/v1736427009/cbwg9savualjudio405j.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -73,7 +73,7 @@
   justify-content: space-between;
 }
 .container {
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: flex-start;
 }
 
@@ -244,7 +244,7 @@
 .peepee {
   height: 100vh;
   width: 100vw;
-  background-image: url("./assets/peepee.svg");
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427273/vnh1xrwxolyzedkdjpkd.png");
   background-size: cover;
 }
 
@@ -259,7 +259,7 @@
   transform: translate(-50%, -50%);
   border-radius: 20px;
   scrollbar-width: none;
-  padding: 0 20px; /* No padding-top to avoid extra space */
+   /* No padding-top to avoid extra space */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.5);
@@ -281,7 +281,23 @@
 .peepee-doc-content {
   padding-top: 20px; /* Adds space for the sticky heading */
 }
-
+.input-box-contact {
+  background-color: #f6f6f6;
+  padding: 5px;
+  letter-spacing: 0.64px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+}
+.input-box-contact::placeholder {
+  font-size: 13px;
+  font-weight: 600;
+  color: #434242;
+}
+.input-box-contact:focus {
+  outline: none;
+  border: none;
+}
 @media (max-width: 1200px) {
   .sign-in-box {
     width: 55%;
@@ -290,7 +306,15 @@
 
 /* PASSWORD RECOVERY */
 .pr-page {
-  background-image: url("../public/page2.png");
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427648/xwdoeds5fp3pqsyozzut.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  margin-bottom: 0px;
+}
+.pr-page-1{
+  background-image: url("https://res.cloudinary.com/deg3edza1/image/upload/v1736427654/uwlyjv2conjuqowprucj.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -313,7 +337,7 @@
   justify-content: space-between;
 }
 .forgot-pass {
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   padding: 5px 30px;
   font-family:"BebasNeue";
   font-weight : bold;
@@ -458,18 +482,104 @@ background-size: cover;
   .no-scrollbar::-webkit-scrollbar {
     display: none;
 }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
+}
+/* ACCOUNT CENTER */
 .ACMAIN{
   height: 100vh;
   width: 100vw;
-  background-image: url("../public/AC.png");
+  background-image: url("../public/bdragon.png");
   background-size: cover;
+  background-color: #000000d1;
   font-family: "Agencyfb";
 }
 .frosted-glass {
-  background-color: rgba(4, 4, 4, 0.2); /* Transparent white */
+  background-color: #000000; /* Transparent white */
   backdrop-filter: blur(1px); /* Frosted glass effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari */
   border: 1px solid rgba(255, 255, 255, 0.3); /* Border to enhance the effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow */
+  opacity: calc(70%);
+}
+.AC-head-text{
+font-family: "Arial Rounded MT Bold";
+text-align: center;
+font-size: 20px;
+}
+.AC-text{
+ font-family:Arial, Helvetica, sans-serif;
+text-align: center; 
+font-size: 12px;
+margin-top:6px;
+margin-bottom:10px;
+}
+.AC-span{
+  color : #0005FF;
+}
+.personal-info{
+  font-size: 20px;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-radius : 10px;
+  font-size : 14px;
+}
+.personal-info:hover{
+  cursor : pointer;
+}
+.per-info-options{
+  font-size: 20px;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-top:20px;
+  margin-bottom:20px;
+  border-radius : 10px;
+  font-size : 14px;
+  opacity : calc();
+  /* padding: 0.25rem 0.5rem; */
+}
+.AC-input{
+  font-family:"Arial Rounded MT Bold";
+  letter-spacing: 0.64px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius : 5px;
+  text-align:center;
+}
+.AC-input::placeholder {
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  text-align: center;
+}
+.AC-buttons-cancel{
+  font-family:"Arial Rounded MT Bold";
+  border:2px solid white;
+  border-radius: 10px;
+  padding: 8px 0;
+  font-size: small;
+  font-weight: bolder;
+}
+.AC-buttons-save{
+  font-family:"Arial Rounded MT Bold";
+  border-radius: 10px;
+  padding: 8px 0;
+  font-size: small;
+  font-weight: bolder;
+  /* background-color: #0CFFA7; */
+}
+.AC-pp{
+  border-radius : 50%;
+}
+.AC-text-two{
+font-family: "Arial Rounded MT Bold";
+text-align: center; 
+font-size: 18px;
+margin-top:15px;
+margin-bottom:15px;
+}
+.Ac-cards{
+  align-items : center;
+  
 }
