@@ -27,17 +27,22 @@ import HeaderPR from "./components/HeaderPR";
 import Sample from "./components/Sample";
 // import Header from "./components/Header";
 import BgmiPage from "./pages/BgmiPage";
+
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-       {/* <Body/> */}
+      <Body/>
       {/* <Login/> */}
       {/* <DashBoard/> */}
-      <Homepage/>
+      {/* <Homepage/> */}
       {/* <AccountCenter /> */}
+      {/* <BgmiPage/> */}
+      {/* <Hero/> */}
       {/* <NavConsole/> */}
-      
+      {/* <UsernameRecover/> */}
+      {/* <GamerTag/> */}
     </div>
+    
   );
 };
 
