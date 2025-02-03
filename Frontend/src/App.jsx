@@ -17,7 +17,7 @@ import AccountCenter from "./components/AccountCenter";
 import Homepage from "./components/homepage/Homepage";
 import NavConsole from "./components/ui/nav/NavConsole";
 // import Header from "./components/Header";
-import HeaderPR from "./components/HeaderPR";
+
 // import UsernameRecover from "./components/UsernameRecover";
 import GamerTag from "./components/GamerTag";
 import Password from "./components/Password";
@@ -27,7 +27,8 @@ import HeaderPR from "./components/HeaderPR";
 import Sample from "./components/Sample";
 // import Header from "./components/Header";
 import BgmiPage from "./pages/BgmiPage";
-
+import Admin from "./components/Admin";
+import AdminOverview from "./components/AdminOverview";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
@@ -39,7 +40,8 @@ const App = () => {
       {/* <BgmiPage/> */}
       {/* <Hero/> */}
       {/* <NavConsole/> */}
-      {/* <UsernameRecover/> */}
+      {/* <Admin/> */}
+      <AdminOverview/>{/* <UsernameRecover/> */}
       {/* <GamerTag/> */}
     </div>
     
