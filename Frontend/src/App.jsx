@@ -32,15 +32,19 @@ import AdminOverview from "./components/AdminOverview";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-       {/* <Body/> */}
+      <Body/>
       {/* <Login/> */}
       {/* <DashBoard/> */}
       {/* <Homepage/> */}
       {/* <AccountCenter /> */}
+      {/* <BgmiPage/> */}
+      {/* <Hero/> */}
       {/* <NavConsole/> */}
       {/* <Admin/> */}
-      <AdminOverview/>
+      <AdminOverview/>{/* <UsernameRecover/> */}
+      {/* <GamerTag/> */}
     </div>
+    
   );
 };
 
