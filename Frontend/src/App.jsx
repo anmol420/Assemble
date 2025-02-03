@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import PassRecovery from "./components/PassRecovery";
 import IdentityVerify from "./components/IdentityVerify";
 import ChangePass from "./components/ChangePass";
-import UsernameRecover from "./components/UsernameRecover";
+// import UsernameRecover from "./components/UsernameRecover";
 import UsernameSent from "./components/UsernameSent";
 import DashBoard from "./components/DashBoard";
 import AccountCenter from "./components/AccountCenter"
@@ -22,17 +22,22 @@ import HeaderPR from "./components/HeaderPR";
 import GamerTag from "./components/GamerTag";
 import Password from "./components/Password";
 import BgmiPage from "./pages/BgmiPage";
+
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-       {/* <Body/> */}
+      <Body/>
       {/* <Login/> */}
       {/* <DashBoard/> */}
-      <Homepage/>
+      {/* <Homepage/> */}
       {/* <AccountCenter /> */}
+      {/* <BgmiPage/> */}
+      {/* <Hero/> */}
       {/* <NavConsole/> */}
-      
+      {/* <UsernameRecover/> */}
+      {/* <GamerTag/> */}
     </div>
+    
   );
 };
 

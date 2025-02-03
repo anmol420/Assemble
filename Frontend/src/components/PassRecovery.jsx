@@ -8,38 +8,40 @@ const PassRecovery = () => {
 
   // State for input values and error handling
   const [email, setEmail] = useState("");
-
   const [errorMessage, setErrorMessage] = useState("");
+
+  // State to toggle between modes
+  const [isForgotPassword, setIsForgotPassword] = useState(true);
 
   const handleclick = async () => {
     try {
+      const endpoint = isForgotPassword
+        ? "/api/v1/users/forgotPasswordVerificationEmail"
+        : "/api/v1/users/forgotUsernameVerificationEmail";
+
       const response = await axios.post(
-        "/api/v1/users/forgotPasswordVerificationEmail",
-        {
-        email
-        },
-        {
-          withCredentials: true,
-        },
-        navigate("/identity-verify",{ state: { email } }),
+        endpoint,
+        { email },
+        { withCredentials: true }
       );
 
       if (response.status === 200 && response.data.success) {
         console.log("API Response:", response.data);
-        navigate("/browse");
+        navigate("/identity-verify", { state: { email ,isForgotPassword} });
         setEmail("");
-        setPassword("");
       } else {
         setErrorMessage(
           response.data.message || "Invalid credentials. Please try again."
         );
       }
+      navigate("/identity-verify", { state: { email ,isForgotPassword} });
     } catch (error) {
       console.error("Error during API call:", error);
       setErrorMessage(
         error.response?.data?.message || "An error occurred. Please try again."
       );
     }
+
   };
 
   return (
@@ -47,20 +49,34 @@ const PassRecovery = () => {
       <div className="pr-page">
         <HeaderPR />
         <div className="pr-container">
-          <div className="pr-top-box ">
-            <button className="forgot-pass rounded-lg text-white">
-              FORGOT PASSWORD
-            </button>
-            <button className="forgot-pass text-white rounded-lg">
-              FORGOT USERNAME
-            </button>
-          </div>
+        <div className="pr-top-box">
+  <button
+    className={`forgot-pass rounded-lg ${
+      isForgotPassword ? "bg-white text-black" : "bg-black text-white"
+    }`}
+    onClick={() => setIsForgotPassword(true)}
+  >
+    FORGOT PASSWORD
+  </button>
+  <button
+    className={`forgot-pass rounded-lg ${
+      !isForgotPassword ? "bg-white text-black" : "bg-black text-white"
+    }`}
+    onClick={() => setIsForgotPassword(false)}
+  >
+    FORGOT USERNAME
+  </button>
+</div>
+
           <div className="pr-bottom-box">
             <div className="container">
-              <div className="sign-in-box-heading">PASSWORD RECOVERY</div>
+              <div className="sign-in-box-heading">
+                {isForgotPassword ? "PASSWORD RECOVERY" : "USERNAME RECOVERY"}
+              </div>
               <p className="head-text">
-                I know, You Remember About Your Partner's Birthday But A Small
-                Password Not!
+                {isForgotPassword
+                  ? "I know, You Remember About Your Partner's Birthday But A Small Password Not!"
+                  : "Forgot your username? Don't worry, we’ll help you recover it!"}
               </p>
             </div>
             <div className="flex gap-5 flex-col">
