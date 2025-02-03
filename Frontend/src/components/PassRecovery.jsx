@@ -20,9 +20,14 @@ const PassRecovery = () => {
         : "/api/v1/users/forgotUsernameVerificationEmail";
 
       const response = await axios.post(
-        endpoint,
-        { email },
-        { withCredentials: true }
+        " ",
+        {
+        email
+        },
+        {
+          withCredentials: true,
+        },
+        navigate("/identity-verify",{ state: { email } }),
       );
 
       if (response.status === 200 && response.data.success) {
@@ -41,9 +46,12 @@ const PassRecovery = () => {
         error.response?.data?.message || "An error occurred. Please try again."
       );
     }
+  
 
   };
-
+  // const handleclickUsername = () => {
+  //   // navigate("/UsernameRecovery");
+  // }
   return (
     <>
       <div className="pr-page">

@@ -10,10 +10,10 @@ import Footer from "./components/Footer";
 import PassRecovery from "./components/PassRecovery";
 import IdentityVerify from "./components/IdentityVerify";
 import ChangePass from "./components/ChangePass";
-// import UsernameRecover from "./components/UsernameRecover";
+import UsernameRecovery from "./components/UsernameRecovery";
 import UsernameSent from "./components/UsernameSent";
 import DashBoard from "./components/DashBoard";
-import AccountCenter from "./components/AccountCenter"
+import AccountCenter from "./components/AccountCenter";
 import Homepage from "./components/homepage/Homepage";
 import NavConsole from "./components/ui/nav/NavConsole";
 // import Header from "./components/Header";
@@ -21,6 +21,11 @@ import HeaderPR from "./components/HeaderPR";
 // import UsernameRecover from "./components/UsernameRecover";
 import GamerTag from "./components/GamerTag";
 import Password from "./components/Password";
+import { NoticeCard } from "./components/homepage/NoticeCard";
+import UsernameOTP from "./components/UsernameOTP";
+import HeaderPR from "./components/HeaderPR";
+import Sample from "./components/Sample";
+// import Header from "./components/Header";
 import BgmiPage from "./pages/BgmiPage";
 
 const App = () => {
