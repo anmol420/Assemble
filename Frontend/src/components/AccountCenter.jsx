@@ -33,6 +33,7 @@ const AccountCenter = () => {
   const images = [
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279929/lwtjedrq3ls0vy6jyymq.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279951/q6eol9dwjadyvllkdfe0.svg",
+ 
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279948/dgshgmbmoxjsyydnf8tu.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279959/ux9mfgq1rsi62q0cmgb2.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279927/jg8icrxi700co4s5itc1.svg",
@@ -60,7 +61,7 @@ const AccountCenter = () => {
         {/* Frosted Glass Divs Container */}
         <div className="absolute inset-0 flex flex-wrap justify-center items-center mt-[100px] gap-8">
           {/* First Frosted Glass Div */}
-          <div className="frosted-glass -mt-12 h-[97%] w-[20%] rounded-lg p-3">
+          <div className="frosted-glass -mt-14 h-[97%] w-[20%] rounded-lg p-3">
             <div className="AC-head-text text-white">Account Center</div>
             <div className="AC-text text-white">
               Take a look at your Esports career and personal info, and enjoy
@@ -170,7 +171,7 @@ const AccountCenter = () => {
             {/* Third Frosted Glass Div */}
             <div
               className={`frosted-glass h-full flex-grow rounded-lg p-3 pl-24 pr-24 ${
-                isPersonalInfoClicked ? "h-[50%]" : "h-full"
+                isPersonalInfoClicked ? "h-[49%]" : "h-full"
               }`}
             >
               {selectedItem && (
@@ -543,12 +544,12 @@ const AccountCenter = () => {
                 <div>
                   {/* AC-cards div with dynamic background */}
                   <div
-                    className="AC-cards h-32 w-[90%] ml-[4%] text-black rounded-lg bg-cover bg-center"
+                    className="AC-cards h-36 w-[100%] ml-[4%] text-black rounded-lg bg-cover bg-center"
  
                     style={{
                       backgroundImage: `url(${selectedImage})`,
                       backgroundSize: "cover",
-                      backgroundPosition: "center",
+                      backgroundPosition:"center",
                     }}
                   >
                     {/* Optionally, you can add content inside AC-cards */}
