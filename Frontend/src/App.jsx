@@ -29,6 +29,7 @@ import Sample from "./components/Sample";
 import BgmiPage from "./pages/BgmiPage";
 import { Hero } from "./components/bgmipage/Hero";
 import NightHunter from "./pages/NightHunter";
+import ProfileMenu from "../../Frontend/src/components/overlays/ProfileMenu"
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
@@ -44,6 +45,7 @@ const App = () => {
       {/* <UsernameSent/> */}
       {/* <GamerTag/> */}
       {/* <NightHunter/> */}
+      {/* <ProfileMenu/> */}
     </div>
     
   );
