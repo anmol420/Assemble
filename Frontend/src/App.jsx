@@ -32,13 +32,13 @@ import NightHunter from "./pages/NightHunter";
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-      {/* <Body/> */}
+      <Body/>
       {/* <Login/> */}
       {/* <DashBoard/> */}
       {/* <Homepage/> */}
       {/* <BgmiPage /> */}
        {/* <Hero/> */}
-      <AccountCenter />
+      {/* <AccountCenter /> */}
       {/* <NavConsole/> */}
       {/* <UsernameRecovery/> */}
       {/* <UsernameSent/> */}

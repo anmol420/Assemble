@@ -58,12 +58,16 @@ export default function Hero(props) {
       </section>
       {/* card */}
       <section className="mt-4 h-[45%]  w-[110%] no-scrollbar overflow-x-scroll ">
-        <div className="flex items-center  h-[100%] justify-between w-[110%] overflow-hidden ">
-          <GameCard card={<Bgmi/>}/>
-          <GameCard card={<Codm/>}/>
-          <GameCard card={<Valo/>} />
-          <GameCard card={<Freefire/>} />
-          <GameCard card={<Bgmi/>} />
+        <div className="flex items-center  h-[100%] justify-around w-[110%] overflow-hidden ">
+          {/* <GameCard card={<Bgmi/>}/> */}
+          {/* <GameCard card={<Codm/>}/> */}
+          {/* <GameCard card={<Valo/>} /> */}
+          {/* <GameCard card={<Freefire/>} /> */}
+          {/* <GameCard card={<Bgmi/>} /> */}
+          <div className="p1"></div>
+          <div className="p2"></div>
+          <div className="p3"></div>
+          <div className="p4"></div>
         </div>
 
       </section>

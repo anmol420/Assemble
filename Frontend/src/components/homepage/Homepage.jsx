@@ -26,7 +26,11 @@ const Homepage = () => {
           <Sidebar />
         </div>
         <div className="mt-2 h-[90%] w-[90%] no-scrollbar ">
+          
           <Hero name={'Ghostrider69'} />
+          {/* <div className="pho text-white">
+            hhah
+          </div> */}
         </div>
       </div>
     </div>
