@@ -673,25 +673,25 @@
 }
 .p1{
   height: 100%;
-  width: 20%;
+  width: 18%;
   background-image: url("../public/BGMI1.png");
   background-size: 100% 100%;
 }
 .p2{
   height: 100%;
-  width: 20%;
+  width: 18%;
   background-image: url("../public/CODM1.png");
   background-size: 100% 100%;
 }
 .p3{
   height: 100%;
-  width: 20%;
+  width: 18%;
   background-image: url("../public/VALORANT1.png");
   background-size: 100% 100%;
 }
 .p4{
   height: 100%;
-  width: 20%;
+  width:18%;
   background-image: url("../public/FREEFIRE1.png");
   background-size: 100% 100%;
 }

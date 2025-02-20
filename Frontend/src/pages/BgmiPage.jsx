@@ -14,14 +14,14 @@ const BgmiPage = () => {
         />
       </div>
       <div className="z-20">
-        <UpperNav />
+        <UpperNav UpperNav name ="NIGHT HUNTER" />
       </div>
       <div className="relative flex mt-2 h-[90%] w-[100%] justify-start no-scrollbar">
         <div className="relative h-[75%] w-[8%]">
           <Sidebar />
         </div>
         <div className="mt-2 h-[90%] w-[90%] no-scrollbar ">
-          <Hero/>
+          <Hero />
         </div>
       </div>
     </div>

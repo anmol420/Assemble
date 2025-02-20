@@ -24,7 +24,6 @@ const Password = () => {
              console.log(error);
              toast.error(error.response.data.message);
        }
-
      }
 
      const location = useLocation();

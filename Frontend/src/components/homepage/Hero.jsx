@@ -5,8 +5,9 @@ import { Freefire } from "../ui/Cards/Freefire";
 import { Valo } from "../ui/Cards/Valo";
 import { GameCard } from "./GameCard";
 import { NoticeCard } from "./NoticeCard";
-
+import { useNavigate } from "react-router-dom";
 export default function Hero(props) {
+ const navigate = useNavigate();
   return (
     <div className="no-scrollbar h-[90%] w-[90%] ">
       {/* greet */}
@@ -64,7 +65,7 @@ export default function Hero(props) {
           {/* <GameCard card={<Valo/>} /> */}
           {/* <GameCard card={<Freefire/>} /> */}
           {/* <GameCard card={<Bgmi/>} /> */}
-          <div className="p1"></div>
+          <div onClick={() => navigate("/bgmipage")} className="p1"></div>
           <div className="p2"></div>
           <div className="p3"></div>
           <div className="p4"></div>
