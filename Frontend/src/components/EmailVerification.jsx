@@ -39,7 +39,7 @@ const CreateAnewAccount = () => {
       });
 
       if (response.status === 200 && response.data.success) {
-        navigate("/browse");
+        navigate("/dasbord");
       } else {
         setErrorMessage(response.data.message || "Verification failed.");
       }

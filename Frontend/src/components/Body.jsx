@@ -14,6 +14,10 @@ import IdentityVerify from "./IdentityVerify";
 import ChangePass from "./ChangePass";
 import UsernameOTP from "./UsernameOTP";
 import Homepage from "./homepage/Homepage";
+import BgmiPage from "../pages/BgmiPage";
+import Hero from "./homepage/Hero";
+import NightHunter from "../pages/NightHunter";
+import DashBoard from "./DashBoard";
 const Body = () => {
   const approuter = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -28,6 +32,10 @@ const Body = () => {
     {path : "/PassRecovery" , element : <PassRecovery/>},
     {path : "/identity-verify" , element : <IdentityVerify/>},
     {path : "/ChangePass" , element : <ChangePass/>} ,
+    {path: "/bgmipage",element:<BgmiPage/>},
+    {path:"/nighthunter",element:<NightHunter/>},
+    {path:"/dasbord",element:<DashBoard/>}
+    // {path : "/hero" , element:<Hero/>}
     // {path : "/UsernameOTP" , element : <UsernameOTP/>} ,
     // {path : "/UsernameRecovery" , element : <UsernameRecovery/>} ,
   ]);

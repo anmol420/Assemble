@@ -24,7 +24,7 @@ const Login = () => {
       console.log(username,password);
       if (response.status === 200 && response.data.success) {
         console.log("API Response:", response.data);
-        navigate("/browse");
+        navigate("/dasbord");
         setUsername("");
         setPassword("");
       } else {

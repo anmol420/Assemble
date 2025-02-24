@@ -8,6 +8,7 @@ import NavConsole from "./NavConsole";
 import NavBellMenu from "../../overlays/NavbellMenu";
 import NavPaymentMenu from "../../overlays/NavPaymentMenu";
 import ProfileMenu from "../../overlays/ProfileMenu";
+import { ChevronLeft  } from "lucide-react"; // Import back arrow icon
 
 const UpperNav = (props) => {
   const [openMenu, setOpenMenu] = useState(null); // Track which menu is open
@@ -26,7 +27,12 @@ const UpperNav = (props) => {
         <div className="relative w-[30%] z-10">
           <NavConsole name={props.name} />
         </div>
-        <div className="w-[11%] flex justify-between items-center z-10 relative">
+        <div className="w-[14%] flex justify-between items-center z-10 relative">
+          {/* Back Button */}
+          <div onClick={() => window.history.back()} className="cursor-pointer">
+            <ChevronLeft  size={30} className="text-white" />
+          </div>
+
           {/* NavPayment Icon */}
           <div
             onClick={() => handleMenuToggle("payment")}
