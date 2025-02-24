@@ -30,22 +30,24 @@ import BgmiPage from "./pages/BgmiPage";
 import { Hero } from "./components/bgmipage/Hero";
 import NightHunter from "./pages/NightHunter";
 import ProfileMenu from "../../Frontend/src/components/overlays/ProfileMenu"
+import GamingProfile from "./components/GamingProfile"
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
-      {/* <Body/> */}
+      <Body/>
       {/* <Login/> */}
       {/* <DashBoard/> */}
       {/* <Homepage/> */}
       {/* <BgmiPage /> */}
        {/* <Hero/> */}
-      <AccountCenter />
+      {/* <AccountCenter /> */}
       {/* <NavConsole/> */}
       {/* <UsernameRecovery/> */}
       {/* <UsernameSent/> */}
       {/* <GamerTag/> */}
       {/* <NightHunter/> */}
       {/* <ProfileMenu/> */}
+      {/* <GamingProfile/> */}
     </div>
     
   );

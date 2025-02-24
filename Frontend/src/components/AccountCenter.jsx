@@ -4,7 +4,6 @@ import { GradientText } from "./ui/GradientElements/GradientText";
 import UpperNav from "./ui/nav/UpperNav";
 import { Sidebar } from "./ui/Sidebar/Sidebar";
 import NavConsole from "./ui/nav/NavConsole";
-
 const AccountCenter = () => {
   const [isPersonalInfoClicked, setIsPersonalInfoClicked] = useState(true);
   const [isEsportsInsight, setisEsportsInsight] = useState(false);
@@ -14,13 +13,13 @@ const AccountCenter = () => {
   const handlePersonalInfoClick = () => {
     setIsPersonalInfoClicked(true); // Show Personal Info
     setisEsportsInsight(false); // Hide Esports Insight
-    setselectedItem(null);
+    setselectedItem("Name");
   };
 
   const handleEsportsInsightClick = () => {
     setisEsportsInsight(true); // Show Esports Insight
     setIsPersonalInfoClicked(false); // Hide Personal Info
-    setSelectedItem(null);
+    setselectedItem("Badge");
   };
   const handleItemClick = (item) => {
     setselectedItem(item);
@@ -31,12 +30,11 @@ const AccountCenter = () => {
     setOtp(newOtp); // Set the updated OTP array in the state
   };
   const images = [
-    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279929/lwtjedrq3ls0vy6jyymq.svg",
-    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279951/q6eol9dwjadyvllkdfe0.svg",
- 
-    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279948/dgshgmbmoxjsyydnf8tu.svg",
-    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279959/ux9mfgq1rsi62q0cmgb2.svg",
-    "https://res.cloudinary.com/dzyezryhf/image/upload/v1737279927/jg8icrxi700co4s5itc1.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1740225044/lolehxp76rxvfiszogkc.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1740224292/vrdeawxrn1dqcm8a8khh.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1740227482/wwyfuhpd92jgcmx0bgy5.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1740227631/hq64xu2nudgs8eej9x7i.svg",
+    "https://res.cloudinary.com/dzyezryhf/image/upload/v1740224855/zxzrofqdgyemxmbdwo6s.svg",
   ];
 
   // State to track the selected image
@@ -64,12 +62,12 @@ const AccountCenter = () => {
           <div className="frosted-glass -mt-14 h-[98%] w-[22%] rounded-lg p-3 ml-12">
             <div className="AC-head-text text-white">Account Center</div>
             <div className="AC-text text-white">
-              Take a look at your Esports career and personal info, and enjoy
+              Take a look at your Esports career and personal info , and enjoy
               the awesome vibe of tournaments with{" "}
               <span className="AC-span">assemble!</span>
             </div>
             <div
-              className={`personal-info  pl-2 pt-1 pb-1 w-full  cursor-pointer ${
+              className={`personal-info pl-2 pt-2 pb-2 w-full  cursor-pointer mt-8 ${
                 isPersonalInfoClicked
                   ? "bg-white text-black"
                   : "bg-black text-white"
@@ -79,7 +77,7 @@ const AccountCenter = () => {
               Personal Information
             </div>
             <div
-              className={`personal-info  pl-2 pt-1 pb-1 w-full  cursor-pointer ${
+              className={`personal-info  pl-2 pt-2 pb-2 w-full  cursor-pointer mt-2 ${
                 isEsportsInsight ? "bg-white text-black" : "bg-black text-white"
               }`}
               onClick={handleEsportsInsightClick}
@@ -101,7 +99,7 @@ const AccountCenter = () => {
                   you are allowing to show credentials to. Read our
                   <span className="AC-span"> privacy policy</span>
                 </div>
-                <div className="space-y-1  -mt-6">
+                <div className="space-y-2 -mt-10">
                   {[
                     "",
                     "Name",
@@ -113,9 +111,9 @@ const AccountCenter = () => {
                   ].map((option, index) => (
                     <div
                       key={index}
-                      className={`per-info-options pl-2 pt-1 pb-1 w-full cursor-pointer ${
+                      className={`per-info-options pl-2 pt-2 pb-2 w-full cursor-pointer ${
                         index === 0
-                          ? "bg-black text-white" // First item always black background
+                          ? "bg-[rgba(0, 0, 0, 0.6]  text-white" // First item always black background
                           : selectedItem === option
                           ? "bg-white text-black" // Selected item gets white background and black text
                           : "bg-black text-white" // Default black background and white text
@@ -137,7 +135,7 @@ const AccountCenter = () => {
                   you are allowing to show credentials, read{" "}
                   <span className="AC-span">privacy policy</span>
                 </div>
-                <div className="space-y-1  -mt-6">
+                <div className="space-y-2 -mt-10">
                   {[
                     "",
                     "Badge",
@@ -149,9 +147,9 @@ const AccountCenter = () => {
                   ].map((option, index) => (
                     <div
                       key={index}
-                      className={`per-info-options pl-2 pt-1 pb-1 w-full cursor-pointer ${
+                      className={`per-info-options pl-2 pt-2 pb-2 w-full cursor-pointer ${
                         index === 0
-                          ? "bg-black text-white" // First item always black background
+                          ? "bg-[rgba(0, 0, 0, 0.6] text-white" // First item always black background
                           : selectedItem === option
                           ? "bg-white text-black" // Selected item gets white background and black text
                           : "bg-black text-white" // Default black background and white text
@@ -178,7 +176,7 @@ const AccountCenter = () => {
                 <div className="text-white">
                   {/* Render Different Elements for Personal Information */}
                   {isPersonalInfoClicked && selectedItem === "Name" && (
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-8">
                       <div>
                         <div className="AC-head-text"> Name</div>
                         <div className="AC-text ">
@@ -191,7 +189,7 @@ const AccountCenter = () => {
                           className=" AC-input w-full p-2 text-black"
                           placeholder="Name"
                         />
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -204,7 +202,7 @@ const AccountCenter = () => {
                     </div>
                   )}
                   {isPersonalInfoClicked && selectedItem === "Username" && (
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-8">
                       <div>
                         <div className="AC-head-text"> Username</div>
                         <div className="AC-text ">
@@ -217,7 +215,7 @@ const AccountCenter = () => {
                           className=" AC-input w-full p-2 text-black"
                           placeholder="Username"
                         />
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -231,7 +229,7 @@ const AccountCenter = () => {
                   )}
                   {isPersonalInfoClicked &&
                     selectedItem === "Date Of Birth" && (
-                      <div className="flex flex-col gap-5">
+                      <div className="flex flex-col gap-8">
                         <div>
                           <div className="AC-head-text"> Date</div>
                           <div className="AC-text ">
@@ -245,7 +243,7 @@ const AccountCenter = () => {
                             className=" AC-input w-full p-2 text-black"
                             placeholder=""
                           />
-                          <div className="flex mt-5 gap-2">
+                          <div className="flex mt-5 justify-between">
                             <button className="AC-buttons-cancel w-52 text-white">
                               Cancel
                             </button>
@@ -258,7 +256,7 @@ const AccountCenter = () => {
                       </div>
                     )}
                   {isPersonalInfoClicked && selectedItem === "Email Id" && (
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-4">
                       <div>
                         <div className="AC-head-text"> Email</div>
                         <div className="AC-text ">
@@ -285,7 +283,7 @@ const AccountCenter = () => {
                             />
                           ))}
                         </div>
-                        <div className="flex mt-5 gap-2">
+                        <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -307,8 +305,11 @@ const AccountCenter = () => {
                           </div>
                         </div>
                         <div>
-                          <div className="AC-pp h-16 w-16 bg-white ml-44"></div>
-                          <div className="flex mt-5 gap-2">
+                          <div className="flex items-center justify-center  ">
+                            <div className="AC-pp h-20 w-20 bg-white"></div>
+                          </div>
+
+                          <div className="flex mt-5 justify-between">
                             <button className="AC-buttons-cancel w-52 text-white">
                               Cancel
                             </button>
@@ -349,7 +350,7 @@ const AccountCenter = () => {
                             placeholder="Confirm New Password"
                           />
                         </div>
-                        <div className="flex mt-3 gap-2">
+                        <div className="flex mt-3 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
@@ -374,10 +375,23 @@ const AccountCenter = () => {
                           </div>
                         </div>
                         <div>
-                          <input
-                            className=" AC-input w-full p-2 text-black"
-                            placeholder="Username"
-                          />
+                          <select
+                            className="AC-input w-full p-2 text-black"
+                            defaultValue="Choose your Badge"
+                          >
+                            <option className="AC-input w-full p-2 text-black">
+                              Team Leader
+                            </option>
+                            <option className="AC-input w-full p-2 text-black">
+                              In game Leader
+                            </option>
+                            <option className="AC-input w-full p-2 text-black">
+                              Sniper Master
+                            </option>
+                            <option className="AC-input w-full p-2 text-black">
+                              Blind Rusher
+                            </option>
+                          </select>
 
                           <div className="flex mt-5 justify-between">
                             <button className="AC-buttons-cancel w-52 text-white">
@@ -559,7 +573,7 @@ const AccountCenter = () => {
 
             {/* Fourth Frosted Glass Div */}
             {!isEsportsInsight && (
-              <div className="frosted-glass flex-col h-full text-white flex-grow rounded-lg p-3 pl-24 pr-24">
+              <div className="frosted-glass flex-col h-full text-white text-xs flex-grow rounded-lg p-3 pl-24 pr-24">
                 <div>
                   <div className="AC-head-text">Esports Card Front </div>
                   <div className="AC-text ">
@@ -570,13 +584,20 @@ const AccountCenter = () => {
                 <div>
                   {/* AC-cards div with dynamic background */}
                   <div
-                    className="AC-cards h-36 w-[100%] ml-[4%] text-black rounded-lg bg-cover bg-center"
+                    className="AC-cards w-[75%] h-40 rounded-lg bg-cover bg-center text-xs ml-14"
                     style={{
                       backgroundImage: `url(${selectedImage})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   >
+                    <div className="text-white   flex-col pt-[23%] pl-20 ">
+                      <div className="flex gap-28 ">
+                        <div className="">Name</div>
+                        <div className="">Date Of Birth</div>
+                      </div>
+                      <div className="ml-16">Email ID</div>
+                    </div>
                     {/* Optionally, you can add content inside AC-cards */}
                   </div>
 

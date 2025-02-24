@@ -298,6 +298,17 @@
   outline: none;
   border: none;
 }
+
+.fifty-five{
+  background-image:  url("../public/Fiftyfive.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Gamingcard{
+    background-image:  url("./assets/cards/GamerCard.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media (max-width: 1200px) {
   .sign-in-box {
     width: 55%;
@@ -551,12 +562,12 @@
   font-family: "Agencyfb";
 }
 .frosted-glass {
-  background-color: #000000; /* Transparent white */
+  background-color: rgba(0, 0, 0, 0.55); /* Transparent white */
   backdrop-filter: blur(1px); /* Frosted glass effect */
   -webkit-backdrop-filter: blur(10px); /* For Safari */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Border to enhance the effect */
+  border: 1px solid rgba(255, 255, 255, 0.0); /* Border to enhance the effect */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for a subtle shadow */
-  opacity: calc(70%);
+  opacity: calc(100%);
 }
 .AC-head-text {
   font-family: "Arial Rounded MT Bold";
@@ -571,13 +582,12 @@
   margin-bottom: 10px;
 }
 .AC-span {
-  color: #0005ff;
+  color: #0080FF;
 }
 .personal-info {
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
-  margin-top: 20px;
-  margin-bottom: 20px;
+
   border-radius: 10px;
   font-size: 14px;
 }
@@ -635,7 +645,7 @@
   margin-bottom: 15px;
 }
 .Ac-cards {
-  align-items: center;
+  /* align-items: center; */
 }
 /* NIGHT HUNTER R7 FRO BGMI PAGE OVERVIEWS ETC */
 .bg-NH {
