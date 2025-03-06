@@ -36,7 +36,7 @@ const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
       <Body/>
-      <Body/>
+      {/* <Body/> */}
       {/* <Login/> */}
       {/* <DashBoard/> */}
       {/* <Homepage/> */}
