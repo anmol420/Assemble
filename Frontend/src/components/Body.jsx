@@ -18,6 +18,7 @@ import BgmiPage from "../pages/BgmiPage";
 import Hero from "./homepage/Hero";
 import NightHunter from "../pages/NightHunter";
 import DashBoard from "./DashBoard";
+import GamingProfile from "./GamingProfile";
 const Body = () => {
   const approuter = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -34,7 +35,8 @@ const Body = () => {
     {path : "/ChangePass" , element : <ChangePass/>} ,
     {path: "/bgmipage",element:<BgmiPage/>},
     {path:"/nighthunter",element:<NightHunter/>},
-    {path:"/dasbord",element:<DashBoard/>}
+    { path: "/dashbord", element: <DashBoard /> },
+    {path : "/GamingProfile" , element : <GamingProfile/>}
     // {path : "/hero" , element:<Hero/>}
     // {path : "/UsernameOTP" , element : <UsernameOTP/>} ,
     // {path : "/UsernameRecovery" , element : <UsernameRecovery/>} ,

@@ -19,7 +19,7 @@ const GamerTag = () => {
   };
 
   const handlePrivacyPolicyClickMinus6 = () => {
-    navigate("/EmailVerification");
+    navigate("/Register");
   };
 
   return (

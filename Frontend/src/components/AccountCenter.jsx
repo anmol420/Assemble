@@ -4,11 +4,22 @@ import { GradientText } from "./ui/GradientElements/GradientText";
 import UpperNav from "./ui/nav/UpperNav";
 import { Sidebar } from "./ui/Sidebar/Sidebar";
 import NavConsole from "./ui/nav/NavConsole";
+import { use } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const AccountCenter = () => {
   const [isPersonalInfoClicked, setIsPersonalInfoClicked] = useState(true);
   const [isEsportsInsight, setisEsportsInsight] = useState(false);
   const [selectedItem, setselectedItem] = useState("Name");
   const [otp, setOtp] = useState(Array(6).fill(""));
+  const [name, setName] = useState("");
+  const [username, setuserName] = useState("");
+  const [dob, setDob] = useState("");
+  const [email, setEmail] = useState("");
+  const [prevpass, setPrevpass] = useState("");
+  const [newpass, setNewpass] = useState("");
+  const [confirmpass, setConfirmpass] = useState("");
+
   // Handle click to toggle the Personal Information section
   const handlePersonalInfoClick = () => {
     setIsPersonalInfoClicked(true); // Show Personal Info
@@ -43,7 +54,78 @@ const AccountCenter = () => {
   const handleImageSelect = (image) => {
     setSelectedImage(image);
   };
+  const handleNamechange = async () => {
+    const newName = name;
 
+    try {
+      const response = await axios.post("/api/v1/users/addDetails", {
+        name: newName,
+      });
+      console.log(response);
+    } catch (error) {}
+  };
+  const handleUsernameChange = async () => {
+    try {
+      const response = await axios.patch("/api/v1/users/changeUsername", {
+        newUsername: username,
+      });
+      console.log("username changed");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleDobchange = async () => {
+    const newDOb = dob;
+    try {
+      const response = await axios.post("/api/v1/users/addDetails", {
+        dob: newDOb,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleEmailchange = async () => {
+    try {
+      const response = await axios.patch("/api/v1/users/changeEmail", {
+        newEmail: email,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleEmailverify = async () => {
+    try {
+      const response = await axios.patch("/api/v1/users/verifyNewEmail", {
+        newEmail: email,
+        code: otp,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handlePasswordChange = async () => {
+    try {
+      const response = await axios.patch("/api/v1/users/changePassword", {
+        oldPassword: prevpass,
+        newPassword: newpass,
+      });
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("/api/v1/users/logout");
+      console.log(response);
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   return (
     <>
       <div className="ACMAIN relative h-screen">
@@ -83,6 +165,12 @@ const AccountCenter = () => {
               onClick={handleEsportsInsightClick}
             >
               Esports Insight
+            </div>
+            <div
+              className="text-ASSred mt-96 ml-2 cursor-pointer"
+              onClick={handleLogout}
+            >
+              Logout
             </div>
           </div>
 
@@ -188,12 +276,17 @@ const AccountCenter = () => {
                         <input
                           className=" AC-input w-full p-2 text-black"
                           placeholder="Name"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
                         />
                         <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
-                          <button className="AC-buttons-save w-52 text-black bg-ASSgreen">
+                          <button
+                            className="AC-buttons-save w-52 text-black bg-ASSgreen"
+                            onClick={handleNamechange}
+                          >
                             Save
                           </button>
                         </div>
@@ -214,12 +307,17 @@ const AccountCenter = () => {
                         <input
                           className=" AC-input w-full p-2 text-black"
                           placeholder="Username"
+                          onChange={(e) => setuserName(e.target.value)}
+                          value={username}
                         />
                         <div className="flex mt-5 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
-                          <button className="AC-buttons-save w-52 text-black bg-ASSgreen">
+                          <button
+                            className="AC-buttons-save w-52 text-black bg-ASSgreen"
+                            onClick={handleUsernameChange}
+                          >
                             Save
                           </button>
                         </div>
@@ -242,12 +340,17 @@ const AccountCenter = () => {
                             type="date"
                             className=" AC-input w-full p-2 text-black"
                             placeholder=""
+                            onChange={(e) => setDob(e.target.value)}
+                            value={dob}
                           />
                           <div className="flex mt-5 justify-between">
                             <button className="AC-buttons-cancel w-52 text-white">
                               Cancel
                             </button>
-                            <button className="AC-buttons-save w-52 text-black bg-ASSgreen">
+                            <button
+                              className="AC-buttons-save w-52 text-black bg-ASSgreen"
+                              onClick={handleDobchange}
+                            >
                               Save
                             </button>
                           </div>
@@ -256,12 +359,12 @@ const AccountCenter = () => {
                       </div>
                     )}
                   {isPersonalInfoClicked && selectedItem === "Email Id" && (
-                    <div className="flex flex-col gap-4">
+                    <div className="  flex-col ">
                       <div>
                         <div className="AC-head-text"> Email</div>
                         <div className="AC-text ">
-                          You can show off your gaming skills and no one will
-                          judge you for your age!
+                          You can catch all kinds of notifications about esports
+                          tournaments and series!
                         </div>
                       </div>
                       <div>
@@ -269,7 +372,18 @@ const AccountCenter = () => {
                           type="email"
                           className=" AC-input w-full p-2 text-black"
                           placeholder="Email"
+                          onChange={(e) => setEmail(e.target.value)}
+                          value={email}
                         />
+                        <div className="flex justify-center">
+                          <button
+                            className="AC-buttons-cancel w-52 text-white mt-2 align-middle"
+                            onClick={handleEmailchange}
+                          >
+                            Save
+                          </button>
+                        </div>
+
                         <div className="flex justify-between text-black">
                           {otp.map((digit, index) => (
                             <input
@@ -283,11 +397,14 @@ const AccountCenter = () => {
                             />
                           ))}
                         </div>
-                        <div className="flex mt-5 justify-between">
+                        <div className="flex mt-2 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
-                          <button className="AC-buttons-save w-52 text-black bg-ASSgreen">
+                          <button
+                            className="AC-buttons-save w-52 text-black bg-ASSgreen"
+                            onClick={handleEmailverify}
+                          >
                             Save
                           </button>
                         </div>
@@ -338,23 +455,32 @@ const AccountCenter = () => {
                             type="text"
                             className=" AC-input w-full p-1 text-black mt-1 mb-1"
                             placeholder="Previous Password"
+                            onChange={(e) => setPrevpass(e.target.value)}
+                            value={prevpass}
                           />
                           <input
                             type="text"
                             className=" AC-input w-full p-1 text-black mt-1 mb-1"
                             placeholder="New Password"
+                            onChange={(e) => setNewpass(e.target.value)}
+                            value={newpass}
                           />
                           <input
                             type="text"
                             className=" AC-input w-full p-1 text-black mt-1 mb-1"
                             placeholder="Confirm New Password"
+                            onChange={(e) => setConfirmpass(e.target.value)}
+                            value={confirmpass}
                           />
                         </div>
                         <div className="flex mt-3 justify-between">
                           <button className="AC-buttons-cancel w-52 text-white">
                             Cancel
                           </button>
-                          <button className="AC-buttons-save w-52 text-black bg-ASSgreen">
+                          <button
+                            className="AC-buttons-save w-52 text-black bg-ASSgreen"
+                            onClick={handlePasswordChange}
+                          >
                             Save
                           </button>
                         </div>
@@ -592,11 +718,17 @@ const AccountCenter = () => {
                     }}
                   >
                     <div className="text-white   flex-col pt-[23%] pl-20 ">
-                      <div className="flex gap-28 ">
-                        <div className="">Name</div>
-                        <div className="">Date Of Birth</div>
+                      <div className="flex-col gap-16 p-1 pl-3 text-xs">
+                        <div className="">
+                          NAME : <span className="text-black">{name}</span>
+                        </div>
+                        <div className="">
+                          DOB : <span className="text-black">{dob}</span>{" "}
+                        </div>
+                        <div className="">
+                          EMAIL ID : <span className="text-black">{email}</span>{" "}
+                        </div>
                       </div>
-                      <div className="ml-16">Email ID</div>
                     </div>
                     {/* Optionally, you can add content inside AC-cards */}
                   </div>
@@ -606,7 +738,7 @@ const AccountCenter = () => {
                     {images.map((image, index) => (
                       <div
                         key={index}
-                        className="Choose-bg-items h-14 w-20  rounded-lg cursor-pointer hover:opacity-75"
+                        className="Choose-bg-items h-14 w-20  rounded- cursor-pointer hover:opacity-75"
                         style={{
                           backgroundImage: `url(${image})`,
                           backgroundSize: "cover",

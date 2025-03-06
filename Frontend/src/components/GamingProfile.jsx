@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 const GamingProfile = () => {
-  
-
+  const navigate = useNavigate();
+  const handleclick = () => {
+    navigate("/");
+  };
   return (
     <div className="body">
       <div className="page">
         <Header />
         <form>
           <div className="sign-in-box">
-            
             <div className="container flex-col gap-2">
               <div className="flex flex-row gap-16">
                 <div className="back">
@@ -30,16 +32,11 @@ const GamingProfile = () => {
               <button
                 type="submit"
                 className="sign-in-button bg-black text-white"
+                onClick={handleclick}
               >
                 CONTINUE
               </button>
             </>
-            <div className="head-text mt-6">
-              You can also set it up afterwards.
-            </div>
-            <button type="submit" className="sign-in-button">
-              SKIP, GO TO HOMEPAGE
-            </button>
           </div>
         </form>
         {/* <Footer /> */}

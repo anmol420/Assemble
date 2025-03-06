@@ -7,6 +7,7 @@ const DashBoard = () => {
   const [gameDetails, setGameDetails] = useState({});
   const [showGameOptions, setShowGameOptions] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [tagLineID, setTagLineID] = useState("");
   const navigate = useNavigate();
 
   const gameAPIEndpoints = {
@@ -14,7 +15,7 @@ const DashBoard = () => {
     "Call of Duty Mobile": "codm",
     "Valorant PC": "valorant",
     "FreeFire Mobile": "freefire",
-    "Asphalt 9": "asphalt9",
+    "Asphalt 9": "asphalt",
   };
 
   const handleGameClick = (game) => {
@@ -33,6 +34,9 @@ const DashBoard = () => {
       [selectedGame]: value,
     }));
   };
+  const handleInputChange2 = (e) => {
+    setTagLineID(e.target.value);
+  };
 
   const handleSubmit = async () => {
     if (!selectedGame || !gameDetails[selectedGame]) {
@@ -40,7 +44,7 @@ const DashBoard = () => {
       return;
     }
 
-    const gameID = gameDetails[selectedGame];
+    const gameIDone = gameDetails[selectedGame];
     const endpoint = gameAPIEndpoints[selectedGame];
 
     if (!endpoint) {
@@ -48,16 +52,41 @@ const DashBoard = () => {
       return;
     }
 
+    const riotId = gameIDone;
+    const tagline = tagLineID;
+    
+    
+    console.log(riotId, tagline, endpoint );
     try {
-      const response = await axios.post(`/api/v1/users/games/${endpoint}`, {
-        gameID,
-      });
+      if (endpoint === "valorant") {
+        // Special API call for Valorant
+        const response = await axios.post(`/api/v1/users/games/valorant`, {
+          gameID: {
+            riotId: gameIDone,
+            tagline : tagLineID
+          },
+        });
 
-      if (response.status === 201 && response.data.success) {
-        console.log("API Response:", response.data);
-        navigate("/browse");
+        if (response.status === 201 && response.data.success) {
+          console.log("Valorant API Response:", response.data);
+          navigate("/browse");
+        } else {
+          setErrorMessage(response.data.message || "Submission failed.");
+
+          console.log(errorMessage);
+        }
       } else {
-        setErrorMessage(response.data.message || "Submission failed.");
+        // General API call for other games
+        const response = await axios.post(`/api/v1/users/games/${endpoint}`, {
+          gameID,
+        });
+
+        if (response.status === 201 && response.data.success) {
+          console.log("API Response:", response.data);
+          navigate("/browse");
+        } else {
+          setErrorMessage(response.data.message || "Submission failed.");
+        }
       }
     } catch (error) {
       setErrorMessage(
@@ -125,22 +154,34 @@ const DashBoard = () => {
                   alt={`Image for ${selectedGame}`}
                   className="rounded-xl mt-5 h-48 w-auto"
                 />
-
+                {selectedGame === "Valorant PC" && (
+                  <input
+                    type="text"
+                    value={tagLineID}
+                    onChange={handleInputChange2}
+                    placeholder={` Tagline ID`}
+                    className="mt-3 h-10 w-72 text-center border border-black rounded-md"
+                  />
+                )}
                 <input
                   type="text"
                   value={gameDetails[selectedGame] || ""}
                   onChange={handleInputChange}
                   placeholder={`Enter your ${selectedGame} ID`}
-                  className="mt-5 h-10 w-72 text-center border border-black rounded-md"
+                  className="mt-2 h-10 w-72 text-center border border-black rounded-md"
                 />
               </div>
             )}
           </div>
 
-          {errorMessage && <div className="text-red-500 mt-3">{errorMessage}</div>}
+          {errorMessage && (
+            <div className="text-red-500 mt-3">{errorMessage}</div>
+          )}
 
           <div className="submit text-white h-10 py-1 rounded-lg bg-[#000000] w-[90%] text-center mt-7">
-            <button type="button" onClick={handleSubmit}>CONTINUE</button>
+            <button type="button" onClick={handleSubmit}>
+              CONTINUE
+            </button>
           </div>
         </div>
       </div>

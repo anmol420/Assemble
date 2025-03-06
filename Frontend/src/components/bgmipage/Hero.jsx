@@ -8,12 +8,12 @@ export const Hero = () => {
   const [events, setEvents] = useState([]);
 
   // Fetch data from API
-  // useEffect(() => {
-  //   fetch("YOUR_API_ENDPOINT_HERE")
-  //     .then((res) => res.json())
-  //     .then((data) => setEvents(data))
-  //     .catch((error) => console.error("Error fetching events:", error));
-  // }, []);
+  useEffect(() => {
+    fetch("/api/v1/tournament/getTournaments")
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((error) => console.error("Error fetching events:", error));
+  }, []); // <-- Add an empty dependency array
 
   return (
     <div className="no-scrollbar font-bebas flex flex-col gap-2 h-[100%] w-[100%]">
@@ -36,11 +36,20 @@ export const Hero = () => {
           </div>
           {/* Hardcoded Events */}
           {[...Array(3)].map((_, index) => (
-            <div key={index} className="flex flex-col h-[30%] items-center cursor-pointer">
+            <div
+              key={index}
+              className="flex flex-col h-[30%] items-center cursor-pointer"
+            >
               <div className="w-[100%] h-[100%] overflow-hidden rounded-lg">
-                <img className="-translate-y-10" src="../../../public/svgviewer-png-output.png" alt="" />
+                <img
+                  className="-translate-y-10"
+                  src="../../../public/svgviewer-png-output.png"
+                  alt=""
+                />
               </div>
-              <h1 className="text-3xl text-white font-semibold tracking-widest -mt-8">Night Hunter</h1>
+              <h1 className="text-3xl text-white font-semibold tracking-widest -mt-8">
+                Night Hunter
+              </h1>
               <h3 className="text-xs text-center text-white tracking-wide">
                 We go live every day from 6 PM to noon!
               </h3>

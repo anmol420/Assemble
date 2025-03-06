@@ -39,7 +39,7 @@ const CreateAnewAccount = () => {
       });
 
       if (response.status === 200 && response.data.success) {
-        navigate("/dasbord");
+        navigate("/GamingProfile");
       } else {
         setErrorMessage(response.data.message || "Verification failed.");
       }
@@ -59,7 +59,7 @@ const CreateAnewAccount = () => {
         <div className="sign-in-box">
           <div className="container flex gap-2">
             <div className="flex flex-row gap-16">
-              <div className="back" onClick={() => navigate("/Register")}>
+              <div className="back" onClick={() => navigate("/Password")}>
                 <IoArrowBackCircleOutline size={28} />
               </div>
               <div className="sign-in-box-heading">Email Verification</div>
