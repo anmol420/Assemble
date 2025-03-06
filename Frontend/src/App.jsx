@@ -35,9 +35,8 @@ import GamingProfile from "./components/GamingProfile"
 const App = () => {
   return (
     <div className="overflow-hidden no-scrollbar">
+      <Body/>
       {/* <Body/> */}
-      {/* <Body/> */}
-      {/* <Password/> */}
       {/* <Login/> */}
       {/* <DashBoard/> */}
       {/* <Homepage/> */}

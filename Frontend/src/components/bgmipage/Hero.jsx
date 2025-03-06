@@ -1,19 +1,33 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { EventCard } from "../ui/GameCards/EventCard";
 import { GradientText } from "../ui/GradientElements/GradientText";
 
 export const Hero = () => {
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // Fetch data from API
   useEffect(() => {
-    fetch("/api/v1/tournament/getTournaments")
-      .then((res) => res.json())
-      .then((data) => setEvents(data))
-      .catch((error) => console.error("Error fetching events:", error));
-  }, []); // <-- Add an empty dependency array
+    const fetchEvents = async () => {
+      try {
+        const response = await axios.get("/api/v1/tournament/getTournaments");
+        console.log(response.data);
+        
+        if (response.status == 200 && response.data.success) {
+          setEvents(response.data.data);
+        }
+        // console.log(events);//poe
+        
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEvents();
+  }, []);
 
   return (
     <div className="no-scrollbar font-bebas flex flex-col gap-2 h-[100%] w-[100%]">
@@ -34,7 +48,6 @@ export const Hero = () => {
           <div className="brightness-125">
             <GradientText size="lg" text="upcoming and ongoing series" />
           </div>
-          {/* Hardcoded Events */}
           {[...Array(3)].map((_, index) => (
             <div
               key={index}
@@ -56,10 +69,11 @@ export const Hero = () => {
             </div>
           ))}
         </div>
-
         {/* Event List */}
         <div className="w-[80%] h-[100%] overflow-y-scroll no-scrollbar rounded-xl">
-          {events.length > 0 ? (
+          {loading ? (
+            <p className="text-white text-center">Loading events...</p>
+          ) : events.length > 0 ? (
             events.map((event, index) => (
               <EventCard
                 key={index}
@@ -67,20 +81,21 @@ export const Hero = () => {
                 viaColor={event.viaColor || "#B1E9D5"}
                 finalColor={event.finalColor || "#00FFA3"}
                 name={event.name}
-                mode={event.mode}
-                slots={event.slots}
-                date={event.date}
-                time={event.time}
-                pool={event.pool}
-                fee={event.fee}
-                onClick={() => navigate(`/event/${event.id}`)} // Navigate to event details page
+                mode={event.type}
+                slots={`${event.filledSlots || 0}/${event.totalSlots || 0}`}
+                date={event.matchDate}
+                time={event.matchTime}
+                pool={event.prizePool}
+                fee={event.entryFee}
+                onClick={() => navigate(`/event/${event.id}`)}
               />
             ))
           ) : (
-            <p className="text-white text-center">Loading events...</p>
+            <p className="text-white text-center">No events available</p>
           )}
         </div>
       </div>
     </div>
   );
 };
+export default Hero;
