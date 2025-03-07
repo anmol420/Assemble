@@ -42,7 +42,7 @@ const App = () => {
       {/* <Homepage/> */}
       {/* <BgmiPage /> */}
        {/* <Hero/> */}
-      <AccountCenter />
+      {/* <AccountCenter /> */}
       {/* <AccountCenter /> */}
       {/* <NavConsole/> */}
       {/* <UsernameRecovery/> */}

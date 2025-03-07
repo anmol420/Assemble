@@ -7,11 +7,12 @@ import NavConsole from "./ui/nav/NavConsole";
 import { use } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 const AccountCenter = () => {
   const [isPersonalInfoClicked, setIsPersonalInfoClicked] = useState(true);
   const [isEsportsInsight, setisEsportsInsight] = useState(false);
   const [selectedItem, setselectedItem] = useState("Name");
-  const [otp, setOtp] = useState(Array(6).fill(""));
+  const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [name, setName] = useState("");
   const [username, setuserName] = useState("");
   const [dob, setDob] = useState("");
@@ -19,14 +20,14 @@ const AccountCenter = () => {
   const [prevpass, setPrevpass] = useState("");
   const [newpass, setNewpass] = useState("");
   const [confirmpass, setConfirmpass] = useState("");
-
+  const navigate = useNavigate();
   // Handle click to toggle the Personal Information section
   const handlePersonalInfoClick = () => {
     setIsPersonalInfoClicked(true); // Show Personal Info
     setisEsportsInsight(false); // Hide Esports Insight
     setselectedItem("Name");
   };
-
+   
   const handleEsportsInsightClick = () => {
     setisEsportsInsight(true); // Show Esports Insight
     setIsPersonalInfoClicked(false); // Hide Personal Info
@@ -35,11 +36,7 @@ const AccountCenter = () => {
   const handleItemClick = (item) => {
     setselectedItem(item);
   };
-  const handleOtpChange = (e, index) => {
-    const newOtp = [...otp];
-    newOtp[index] = e.target.value; // Update the OTP array
-    setOtp(newOtp); // Set the updated OTP array in the state
-  };
+
   const images = [
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1740225044/lolehxp76rxvfiszogkc.svg",
     "https://res.cloudinary.com/dzyezryhf/image/upload/v1740224292/vrdeawxrn1dqcm8a8khh.svg",
@@ -54,6 +51,16 @@ const AccountCenter = () => {
   const handleImageSelect = (image) => {
     setSelectedImage(image);
   };
+
+  const handleOtpChange = (e, index) => {
+    const value = e.target.value;
+    if (/^[0-9]*$/.test(value)) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+    }
+  };
+
   const handleNamechange = async () => {
     const newName = name;
 
@@ -96,14 +103,19 @@ const AccountCenter = () => {
     }
   };
   const handleEmailverify = async () => {
+    console.log(otp);
+
+    const otpValue = otp.join("");
+    console.log(otpValue);
+
     try {
-      const response = await axios.patch("/api/v1/users/verifyNewEmail", {
+      const response = await axios.post("/api/v1/users/verifyNewEmail", {
         newEmail: email,
-        code: otp,
+        code: otpValue,
       });
       console.log(response);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   const handlePasswordChange = async () => {
@@ -122,6 +134,7 @@ const AccountCenter = () => {
     try {
       const response = await axios.post("/api/v1/users/logout");
       console.log(response);
+      navigate("/");
     } catch (error) {
       console.error("Logout failed:", error);
     }

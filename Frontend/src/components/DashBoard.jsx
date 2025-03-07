@@ -34,6 +34,7 @@ const DashBoard = () => {
       [selectedGame]: value,
     }));
   };
+
   const handleInputChange2 = (e) => {
     setTagLineID(e.target.value);
   };
@@ -52,43 +53,35 @@ const DashBoard = () => {
       return;
     }
 
-    const riotId = gameIDone;
-    const tagline = tagLineID;
-    
-    
-    console.log(riotId, tagline, endpoint );
     try {
+      let requestBody = {};
       if (endpoint === "valorant") {
         // Special API call for Valorant
-        const response = await axios.post(`/api/v1/users/games/valorant`, {
+        requestBody = {
           gameID: {
             riotId: gameIDone,
-            tagline : tagLineID
+            tagline: tagLineID,
           },
-        });
-
-        if (response.status === 201 && response.data.success) {
-          console.log("Valorant API Response:", response.data);
-          navigate("/browse");
-        } else {
-          setErrorMessage(response.data.message || "Submission failed.");
-
-          console.log(errorMessage);
-        }
+        };
       } else {
-        // General API call for other games
-        const response = await axios.post(`/api/v1/users/games/${endpoint}`, {
-          gameID,
-        });
+        // API request for other games
+        requestBody = {
+          gameID: gameIDone, // Fix: Ensure correct key format
+        };
+      }
 
-        if (response.status === 201 && response.data.success) {
-          console.log("API Response:", response.data);
-          navigate("/browse");
-        } else {
-          setErrorMessage(response.data.message || "Submission failed.");
-        }
+      const response = await axios.post(
+        `/api/v1/users/games/${endpoint}`,
+        requestBody
+      );
+
+      if (response.status === 201 && response.data.success) {
+        navigate("/browse");
+      } else {
+        setErrorMessage(response.data.message || "Submission failed.");
       }
     } catch (error) {
+      console.error("Error:", error);
       setErrorMessage(
         error.response?.data?.message || "An error occurred. Please try again."
       );
