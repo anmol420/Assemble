@@ -19,7 +19,7 @@ const GamerTag = () => {
   };
 
   const handlePrivacyPolicyClickMinus6 = () => {
-    navigate("/EmailVerification");
+    navigate("/Register");
   };
 
   return (
@@ -29,8 +29,8 @@ const GamerTag = () => {
           <Header />
 
           <div className="sign-in-box">
-            <div className="container flex gap-2">
-              <div className="flex flex-row gap-20">
+            <div className="container flex-col gap-2">
+              <div className="flex gap-20">
                 <div className="back" onClick={handlePrivacyPolicyClickMinus6}>
                   <IoArrowBackCircleOutline size={28} />
                 </div>

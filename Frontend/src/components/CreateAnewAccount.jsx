@@ -24,7 +24,7 @@ const CreateAnewAccount = () => {
         <Header />
 
         <div className="sign-in-box">
-          <div className="container flex gap-4">
+          <div className="container flex-col gap-4">
             <div className="flex flex-row gap-24">
               <div className="back" onClick={handlePrivacyPolicyClickMinus4}>
                 <IoArrowBackCircleOutline size={30} />
